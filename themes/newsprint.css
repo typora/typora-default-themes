@@ -31,6 +31,14 @@
     src: local('PT Serif'), local('PTSerif-BoldItalic'), url('./newsprint/PT_Serif-Web-BoldItalic.ttf')
 }
 
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+}
+
 html {
 	font-size: 16px;
 }
@@ -293,7 +301,7 @@ hr {
 	content: '\221A';
 	display: inline-block;
 	width: 1.25rem;
-  	height: 1.5rem;
+  	height: 1.6rem;
 	vertical-align: middle;
 	text-align: center;
 	color: #ddd;
@@ -319,34 +327,30 @@ hr {
 	color: #9B5146;
 }
 
-.md-expand.md-image>.md-meta {
-	background-color: rgba(255, 255, 255, 0.65);
-}
-
 .md-image>.md-meta{
 	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
 }
 
 
 #write>h3.md-focus:before{
-	left: -2.5rem;
+	left: -1.5rem;
 	color:#999;
 	border-color:#999;
 }
 #write>h4.md-focus:before{
-	left: -2.5rem;
+	left: -1.5rem;
 	top: .25rem;
 	color:#999;
 	border-color:#999;
 }
 #write>h5.md-focus:before{
-	left: -2.5rem;
+	left: -1.5rem;
 	top: .0.3125rem;
 	color:#999;
 	border-color:#999;
 }
 #write>h6.md-focus:before{
-	left: -2.5rem;
+	left: -1.5rem;
 	top: 0.3125rem;
 	color:#999;
 	border-color:#999;
@@ -366,19 +370,19 @@ hr {
 	background-color: #f3f2ee;
 }
 
-#outline-dropmenu {
+#typora-sidebar {
 	background-color: #f3f2ee;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
   	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
 }
 
-.pin-outline #outline-dropmenu {
+.pin-outline #typora-sidebar {
 	background: inherit;
 	box-shadow: none;
 	border-right: 1px dashed;
 }
 
-.pin-outline #outline-dropmenu:hover .outline-title-wrapper {
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
 	border-left:1px dashed;
 }
 
@@ -465,6 +469,10 @@ header, .context-menu, .megamenu-content, footer {
 	background-color: #D2D1D1;
 }
 
+.btn-default {
+	background-color: transparent;
+}
+
 .typora-sourceview-on #toggle-sourceview-btn,
 .show-word-count #footer-word-count {
 	background: #c7c5c5;
@@ -477,4 +485,39 @@ header, .context-menu, .megamenu-content, footer {
 .md-diagram-panel {
 	margin-left: -1ch;
 	margin-top: 24px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
 }

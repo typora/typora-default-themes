@@ -1,11 +1,9 @@
-@include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
 
-/**
- * css forked from https://github.com/GitbookIO/gitbook 
- * www.gitbook.com
- * Apache License
- * https://github.com/GitbookIO/gitbook/blob/master/LICENSE
- **/
+@include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 @font-face {
     font-family: 'Open Sans';
@@ -222,10 +220,10 @@ blockquote blockquote {
 }
 table {
     padding: 0;
+    word-break: initial;
 }
 table tr {
     border-top: 1px solid #cccccc;
-    background-color: white;
     margin: 0;
     padding: 0;
 }
@@ -345,7 +343,6 @@ tt {
 }
 .md-image>.md-meta {
     border: 1px solid #ddd;
-    background-color: #f8f8f8;
     border-radius: 3px;
     font-family: Consolas, "Liberation Mono", Courier, monospace;
     padding: 2px 4px 0px 4px;
@@ -362,6 +359,10 @@ tt {
     padding-bottom:20px;
 }
 
+.sidebar-tabs {
+    border-bottom: none;
+}
+
 #typora-quick-open {
     border: 1px solid #ddd;
     background-color: #f8f8f8;
@@ -374,6 +375,10 @@ tt {
     border-width: 1px;
 }
 
+#md-notification:before {
+    top: 10px;
+}
+
 /** focus mode */
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
@@ -381,4 +386,14 @@ tt {
 
 header, .context-menu, .megamenu-content, footer{
     font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
 }

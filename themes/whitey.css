@@ -195,10 +195,13 @@ table tbody+tbody {
 	background: #f8f8f8;
 	border: 0px;
 	color: #999;
-	border-left: 1000px #f8f8f8 solid;
-	margin-left: -1000px;
-	border-right: 1000px #f8f8f8 solid;
-	margin-right: -1000px;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
 	margin-bottom: 2em;
 	margin-top: -1.3333333333333rem;
 	padding-top: 26px;
@@ -242,6 +245,11 @@ table tbody+tbody {
     color: #6A6A6A;
 }
 
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
 .cm-s-typora-default .cm-header, 
 .cm-s-typora-default .cm-property,
 .CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
@@ -250,4 +258,10 @@ table tbody+tbody {
 
 .cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
 	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
 }

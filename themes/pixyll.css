@@ -1,6 +1,9 @@
 @import-when-export url(http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
 @import-when-export url(http://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
 
+:root {
+	--control-text-color: #777;
+}
 
 /**
  * forked from pixyll.com
@@ -313,15 +316,19 @@ a {
 #write {
 	padding-top: 2rem;
 }
+
 #write pre.md-meta-block {
 	min-height: 35px;
 	padding: 0.5em 1em;
 	white-space: pre;
 	border: 0px;
-	border-left: 1000px #f8f8f8 solid;
-	margin-left: -1000px;
-	border-right: 1000px #f8f8f8 solid;
-	margin-right: -1000px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
 	margin-bottom: 2em;
 	margin-top: -2010px;
 	padding-top: 2000px;
@@ -424,12 +431,15 @@ a {
 	margin-top: 19px;
 }
 
-#outline-dropmenu {
-	background-color:white;
+#typora-sidebar {
 	font-size:1rem !important;
 }
 
-#outline-content li, #outline-content ul {
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
 	font-size:1rem !important;
 }
 
@@ -478,6 +488,9 @@ a {
 	color: #777777;
 }
 
+.preference-item-hint {
+	margin-top: 16px;
+}
 
 .md-diagram-panel {
 	margin-top: 24px;

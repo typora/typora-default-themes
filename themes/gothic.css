@@ -1,8 +1,6 @@
 @include-when-export url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic);
 @include-when-export url(http://fonts.googleapis.com/css?family=Raleway:600,400&subset=latin,latin-ext);
 
-
-
 @charset "UTF-8";
 @font-face {
     font-family: 'TeXGyreAdventor';
@@ -36,6 +34,20 @@
 	font-style: italic;
 	font-weight: bold;
 	src: url(./gothic/texgyreadventor-bolditalic.otf);
+}
+
+:root {
+	--window-border: none;
+	--typora-center-window-title: true;
+	--active-file-bg-color: #f3f3f3;
+	--bg-color: #fcfcfc;
+	--control-text-color: #777;
+}
+
+.mac-seamless-mode #typora-sidebar {
+	top: var(--mac-title-bar-height);
+	padding-top: 0;
+	height: calc(100% - var(--mac-title-bar-height));
 }
 
 html,
@@ -320,11 +332,12 @@ blockquote p {
 	padding-top: 3em;
     margin-top: -1.5em;
 	color: #999;
-	border-left: 1000px #f8f8f8 solid;
-	margin-left: -1000px;
-	border-right: 1000px #f8f8f8 solid;
-	margin-right: -1000px;
-	margin-bottom: 2em;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
 }
 .MathJax_Display {
 	font-size: 0.9em;
@@ -373,4 +386,20 @@ p.mathjax-block,
 
 .megamenu-menu-panel .btn {
 	border: 1px solid #ccc;
+}
+
+#typora-sidebar {
+	box-shadow: none;
+}
+
+.file-list-item ,
+.show-folder-name .file-list-item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+}
+
+.file-list-item-summary {
+	height: 40px;
+	line-height: 20px;
 }
