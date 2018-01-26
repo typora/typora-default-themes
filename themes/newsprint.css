@@ -504,6 +504,10 @@ header, .context-menu, .megamenu-content, footer {
 	color: black;
 }
 
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
 .file-list-item.active .file-list-item-file-name  {
 	font-weight: bold;
 }

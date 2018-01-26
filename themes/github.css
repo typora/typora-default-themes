@@ -3,7 +3,7 @@
     --control-text-color: #777;
 }
 
-@include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 @font-face {
     font-family: 'Open Sans';
@@ -396,4 +396,8 @@ header, .context-menu, .megamenu-content, footer{
 .mac-seamless-mode #typora-sidebar {
     background-color: #fafafa;
     background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
 }

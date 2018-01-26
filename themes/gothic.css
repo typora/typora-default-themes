@@ -1,14 +1,5 @@
-@include-when-export url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic);
-@include-when-export url(http://fonts.googleapis.com/css?family=Raleway:600,400&subset=latin,latin-ext);
-
-@charset "UTF-8";
-@font-face {
-    font-family: 'TeXGyreAdventor';
-    src: url('texgyreadventor-regular.otf');
-    font-weight: normal;
-    font-style: normal;
-
-}
+@include-when-export url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic);
+@include-when-export url(https://fonts.googleapis.com/css?family=Raleway:600,400&subset=latin,latin-ext);
 
 @charset "UTF-8";
 @font-face {
@@ -47,7 +38,7 @@
 .mac-seamless-mode #typora-sidebar {
 	top: var(--mac-title-bar-height);
 	padding-top: 0;
-	height: calc(100% - var(--mac-title-bar-height));
+	height: auto;
 }
 
 html,
@@ -55,7 +46,7 @@ body,
 #write{
 	background: #fcfcfc;
 	font-family: 'TeXGyreAdventor', "Century Gothic", 'Yu Gothic', 'Raleway', "STHeiti", sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 }
 h1,
 h2,
