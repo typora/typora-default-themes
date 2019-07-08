@@ -3,51 +3,21 @@
     --control-text-color: #777;
 }
 
-@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Open Sans Regular'),url('./github/400.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: normal;
-    src: local('Open Sans Italic'),url('./github/400i.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    src: local('Open Sans Bold'),url('./github/700.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: bold;
-    src: local('Open Sans Bold Italic'),url('./github/700i.woff') format('woff')
-}
-
 html {
     font-size: 16px;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
 
 #write{
     max-width: 860px;
-  	margin: 0 auto;
-  	padding: 20px 30px 40px 30px;
-	padding-top: 20px;
+    margin: 0 auto;
+    padding: 20px 30px 40px 30px;
+    padding-top: 20px;
     padding-bottom: 100px;
 }
 #write > ul:first-child,
@@ -276,11 +246,11 @@ tt {
     padding-bottom: 6px;
 }
 .task-list{
-	padding-left: 0;
+    padding-left: 0;
 }
 
 .task-list-item {
-	padding-left:32px;
+    padding-left:32px;
 }
 
 .task-list-item input {
@@ -308,10 +278,10 @@ tt {
 }
 
 .md-fences {
-	background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 #write pre.md-meta-block {
-	padding: 1rem;
+    padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -322,24 +292,24 @@ tt {
 }
 
 .mathjax-block>.code-tooltip {
-	bottom: .375rem;
+    bottom: .375rem;
 }
 
 #write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
+    left: -1.5625rem;
+    top: .375rem;
 }
 #write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+    left: -1.5625rem;
+    top: .285714286rem;
 }
 #write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+    left: -1.5625rem;
+    top: .285714286rem;
 }
 #write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+    left: -1.5625rem;
+    top: .285714286rem;
 }
 .md-image>.md-meta {
     border: 1px solid #ddd;
@@ -351,10 +321,10 @@ tt {
 }
 
 .md-tag{
-	color: inherit;
+    color: inherit;
 }
 
-.md-toc { 
+.md-toc {
     margin-top:20px;
     padding-bottom:20px;
 }
@@ -385,7 +355,7 @@ tt {
 }
 
 header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .file-node-content:hover .file-node-icon,
