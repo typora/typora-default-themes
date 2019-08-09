@@ -1,0 +1,538 @@
+:root {
+  --gray-000: #fafbfc;
+  --gray-100: #f6f8fa;
+  --gray-200: #e1e4e8;
+  --gray-300: #d1d5da;
+  --gray-400: #959da5;
+  --gray-500: #6a737d;
+  --gray-600: #586069;
+  --gray-700: #444d56;
+  --gray-800: #2f363d;
+  --gray-900: #2f363d;
+  --black:    #1b1f23;
+
+  --blue-100: #dbedff;
+  --blue-200: #c8e1ff;
+  --blue-300: #79b8ff;
+  --blue-400: #2188ff;
+  --blue-500: #0366d6;
+  --blue-600: #005cc5;
+  --blue-700: #044289;
+  --blue-800: #032f62;
+  --blue-900: #05264c;
+
+  --orange-400: #fb8532;
+  --orange-600: #e36209;
+
+  --red-400: #ea4a5a;
+  --red-500: #d73a49;
+
+  --purple-300: #b392f0;
+  --purple-500: #6f42c1;
+
+  --bg-color: var(--black);
+  --text-color: #fff;
+  --md-char-color: var(--gray-600); /* meta chars like `*` */
+  --meta-content-color: var(--gray-300); /* meta content like image text or link url */
+
+  --blur-text-color: var(--gray-600);
+  --control-text-color: var(--gray-500);
+
+  --primary-color: var(--blue-400); /* color of primary buttons */
+  --primary-btn-border-color: var(--primary-color);
+  --primary-btn-text-color: #fff;
+
+  --window-border: 1px solid var(--gray-800);
+  --active-file-bg-color: var(--gray-800);
+  --active-file-text-color: inherit;
+  --active-file-border-color: var(--gray-800);
+
+  --side-bar-bg-color: var(--bg-color); /*change background of sidebar*/
+  --item-hover-bg-color: rgba(229, 229, 229, 0.59); /*background of control items when hover, like menu in sidebar*/
+  --item-hover-text-color: inherit;
+
+  --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --monospace: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
+/*
+ * Typora container
+ */
+#write {
+  max-width: 676px; /* Width of PR/issue/comment area */
+  margin: 0 auto;
+  padding: 1.71rem; /*24px*/
+}
+
+/*
+ * Base
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: var(--system-fonts);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+> *:first-child {
+  margin-top: 0 !important;
+}
+
+> *:last-child {
+  margin-bottom: 0 !important;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre,
+details {
+ margin-top: 0;
+ margin-bottom: 1.14rem; /*16px*/
+}
+
+/*
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.14rem; /*16px*/
+  margin-bottom: 1.71rem; /*24px*/
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+  text-decoration: none;
+}
+
+h1 tt, h1 code,
+h2 tt, h2 code,
+h3 tt, h3 code,
+h4 tt, h4 code,
+h5 tt, h5 code,
+h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  padding-bottom: .3em;
+  font-size: 2em;
+  border-bottom: 1px solid var(--gray-700);
+}
+
+h2 {
+  padding-bottom: .3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--gray-700);
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+   font-size: 0.85em;
+   color: var(--gray-600);
+}
+
+/*
+ * Typography
+ */
+a {
+ color: var(--primary-color);
+ text-decoration: none;
+}
+
+a:hover {
+ text-decoration: underline;
+}
+
+b, strong {
+ font-weight: 600;
+}
+
+hr {
+  box-sizing: content-box;
+  margin: 24px 0;
+  padding: 0;
+  height: .25em;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  background-color: var(--gray-800);
+}
+
+/*
+ * Lists
+ */
+ul,
+ol {
+  padding-left: 2em;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol ol, ul ol {
+    list-style-type: lower-roman;
+}
+
+ol ol ol, ol ul ol, ul ol ol, ul ul ol {
+    list-style-type: lower-alpha;
+}
+
+li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+ol li, ul li {
+  margin-left: 0;
+}
+
+/*
+ * Task lists
+ */
+.task-list {
+	padding-left: 0;
+}
+
+.task-list-item {
+	padding-left: 32px;
+}
+
+.task-list-item input {
+  vertical-align: middle;
+}
+
+/*
+ * Blockquotes
+ */
+blockquote {
+  padding: 0 1em;
+  color: var(--meta-content-color);
+  border-left: .25em solid var(--gray-800);
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/*
+ * Tables
+ */
+table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  word-break: initial;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table tr {
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--gray-700);
+}
+
+table tr:nth-child(2n) {
+  background-color: rgba(255,255,255,0.04);
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid var(--gray-700);
+}
+
+/*
+ * Code
+ */
+
+code, kbd, pre, samp, tt {
+  font-family: var(--monospace);
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  border-radius: 3px;
+  color: var(--gray-100);
+  background-color: var(--gray-600);
+  border: 1px solid var(--gray-700);
+  border-bottom-color: var(--gray-800);
+  box-shadow: inset 0 -1px 0 var(--gray-900);
+  vertical-align: middle;
+}
+
+code,
+tt {
+  margin: 0;
+  padding: .2em .4em;
+  font-size: 85%;
+  border-radius: 3px;
+  background-color: var(--gray-900);
+}
+
+pre {
+  line-height: 1.45;
+  overflow: auto;
+  word-break: normal;
+  word-wrap: normal;
+  border-radius: 3px;
+  background-color: var(--gray-900);
+  font-size: 85%;
+  margin-bottom: 1em;
+}
+
+pre.md-meta-block {
+  color: var(--text-color);
+  background-color: var(--gray-900) !important;
+}
+
+/*
+ * Typora app
+ * ==============================
+ */
+
+/*
+ * Code blocks
+ */
+ .cm-s-inner {
+   line-height: 1.45;
+   overflow: auto;
+   word-break: normal;
+   word-wrap: normal;
+   border-radius: 3px;
+ }
+
+.CodeMirror.cm-s-inner {
+  font-size: 85%;
+  background-color: var(--gray-900);
+}
+
+.md-comment {
+  font-size: 85%;
+  color: var(--meta-content-color);
+}
+
+.md-meta-block {
+  font-size: 85% !important;
+  background-color: var(--meta-content-color) !important;
+}
+
+.md-meta-block,
+.cm-s-inner {
+  padding: 1em;
+}
+
+.CodeMirror-gutters {
+  border: 0;
+}
+
+.md-fences .code-tooltip {
+  top: -1em !important;
+  right: 1em;
+  bottom: auto !important;
+  padding: 5px !important;
+}
+
+.code-tooltip {
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(27,31,35,0.85) !important;
+}
+
+.code-tooltip .ty-input,
+.code-tooltip input {
+  line-height: 1;
+  margin: 0;
+  min-width: 120px !important;
+}
+
+.md-lang {
+  color: var(--blue-300);
+}
+
+
+ .cm-s-inner .cm-keyword { color: rgba(199, 146, 234, 1); }
+ .cm-s-inner .cm-operator { color: rgba(233, 237, 237, 1); }
+ .cm-s-inner .cm-variable-2 { color: #80CBC4; }
+ .cm-s-inner .cm-variable-3 { color: #82B1FF; }
+ .cm-s-inner .cm-builtin { color: #DECB6B; }
+ .cm-s-inner .cm-atom { color: #F77669; }
+ .cm-s-inner .cm-number { color: #F77669; }
+ .cm-s-inner .cm-def { color: rgba(233, 237, 237, 1); }
+ .cm-s-inner .cm-string { color: #C3E88D; }
+ .cm-s-inner .cm-string-2 { color: #80CBC4; }
+ .cm-s-inner .cm-comment { color: #546E7A; }
+ .cm-s-inner .cm-variable { color: #82B1FF; }
+ .cm-s-inner .cm-tag { color: #80CBC4; }
+ .cm-s-inner .cm-meta { color: #80CBC4; }
+ .cm-s-inner .cm-attribute { color: #FFCB6B; }
+ .cm-s-inner .cm-property { color: #80CBAE; }
+ .cm-s-inner .cm-qualifier { color: #DECB6B; }
+ .cm-s-inner .cm-variable-3 { color: #DECB6B; }
+ .cm-s-inner .cm-tag { color: rgba(255, 83, 112, 1); }
+ .cm-s-inner .cm-error {
+   color: rgba(255, 255, 255, 1.0);
+   background-color: #EC5F67;
+ }
+
+/*
+ * Typora app: source mode
+ */
+ /* When clicked, show the heading source (`# text`) */
+.cm-s-typora-default .cm-header,
+.cm-s-typora-default .cm-property {
+  color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-header span,
+.cm-s-typora-default .cm-property span {
+  background-color: var(--blue-100);
+}
+
+/* When clicked, show the link source text (`[text]`) */
+.cm-s-typora-default .cm-link {
+  color: var(--primary-color);
+}
+
+/* When clicked, show the link source url (`(url)`) */
+.cm-s-typora-default .cm-string {
+  color: var(--meta-content-color);
+}
+
+/* When clicked, show the code source url (`<!-- text -->`) */
+.cm-s-typora-default .cm-comment,
+.cm-s-typora-default .cm-code {
+  margin: 0;
+  padding: .2em .4em;
+  font-size: 85%;
+  color: var(--text-color);
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.md-html-inline .md-meta,
+.md-ruby .md-meta,
+.md-comment {
+  opacity: 1;
+  font-size: 85%;
+  color: var(--gray-400);
+}
+
+/* When clicked, show the blockquote source (`> text`) */
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+  color: var(--gray-600);
+}
+
+/* When clicked, show the image tag source (`![alt](url)`) */
+.md-image .md-meta {
+  padding: 3px 5px;
+  font-size: 85%;
+  font-family: var(--monospace);
+  color: var(--text-color);
+  border: 1px solid var(--gray-300);
+  border-radius: 3px;
+}
+
+/*
+ * Typora app: focus mode
+ */
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: var(--blur-text-color) !important;
+}
+
+/*
+ * Typora app: UI
+ */
+
+#top-titlebar,
+header, .context-menu, .megamenu-content, footer,
+.file-list-item-file-name, .file-list-item-summary {
+  font-family: var(--system-fonts) !important;
+}
+
+.file-list-item-parent-loc, .file-list-item-time {
+  font-family: var(--monospace) !important;
+  color: var(--meta-content-color) !important;
+}
+
+#md-notification {
+  border-bottom: solid 1px var(--gray-700);
+}
+
+/*
+ * Print styles
+ */
+@media print {
+  html {
+    font-size: 13px;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  pre {
+    word-wrap: break-word;
+  }
+}
