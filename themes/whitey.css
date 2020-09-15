@@ -57,7 +57,7 @@ h3{
 }
 
 h2:after{
-	border-bottom: 1px solid #2f2f2f;
+    border-top: 1px solid #2f2f2f;
     content: '';
     width: 100px;
     display: block;
