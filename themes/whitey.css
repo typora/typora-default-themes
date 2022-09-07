@@ -5,6 +5,7 @@ html {
 html, body {
 	margin: auto;
 	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
 }
 body {
 	font-family: "Vollkorn", Palatino, Times;
@@ -12,18 +13,25 @@ body {
 	line-height: 1.4;
 	text-align: justify;
 }
+
 #write {
 	max-width: 960px;
 	margin: 0 auto;
 	margin-bottom: 2em;
 	line-height: 1.53;
+	padding-top: 40px;
 }
 
-#write>h2:first-child,
-#write>h3:first-child,
-#write>h4:first-child,
-#write>p:first-child{
-	margin-top: 1.2em;
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	html {
+		font-size: 13px;
+	}
 }
 
 /* Typography
@@ -127,7 +135,7 @@ hr {
 	border-left: 0;
 	border-right: 0;
 }
-.md-table-edit {
+.ty-table-edit {
 	background: #ededed;
     padding-top: 4px;
 }
@@ -163,11 +171,11 @@ table tbody+tbody {
 	padding:0;
 }
 
-.task-list-item {
+.md-task-list-item {
 	padding-left: 1.6rem;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
 	content: '\221A';
 	display: inline-block;
 	width: 1.33333333rem;
@@ -178,8 +186,8 @@ table tbody+tbody {
 	background-color: #fefefe;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
 	color: inherit;
 }
 .md-tag {
@@ -264,4 +272,21 @@ table tbody+tbody {
 .typora-node .file-list-item-time, 
 .typora-node .file-list-item-summary {
 	font-family: arial, sans-serif;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.md-fences .code-tooltip {
+	bottom: -2em !important;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
 }

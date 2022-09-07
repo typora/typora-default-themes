@@ -6,12 +6,13 @@
     --bg-color:  #363B40;
     --side-bar-bg-color: #2E3033;
     --text-color: #b8bfc6;
-    --code-block-bg-color: inherit;//#f8f8f8;
+
+    --select-text-bg-color:#4a89dc;
 
     --item-hover-bg-color: #0a0d16;
     --control-text-color: #b7b7b7;
     --control-text-hover-color: #eee;
-    --window-border: 1px dashed #9b9b9b;
+    --window-border: 1px solid #555;
 
     --active-file-bg-color: rgb(34, 34, 34);
     --active-file-border-color: #8d8df0;
@@ -22,10 +23,15 @@
     --item-hover-bg-color: #70717d;
     --item-hover-text-color: white;
     --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
 }
 
 html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -35,11 +41,24 @@ body {
     background: #363B40;
     background: var(--bg-color);
     fill: currentColor;
+    line-height: 1.625rem;
 }
 
 #write {
     max-width: 914px;
-    padding-top: 20px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
 }
 
 html,
@@ -50,15 +69,20 @@ select,
 textarea,
 div.code-tooltip-content {
     color: #b8bfc6;
+    border-color: transparent;
 }
 
 div.code-tooltip,
 .md-hover-tip .md-arrow:after {
-    background: #4B535A;
+    background: #333;
+}
+
+.native-window #md-notification {
+    border: 1px solid #70717d;
 }
 
 .popover.bottom > .arrow:after {
-    border-bottom-color: #4B535A;
+    border-bottom-color: #333;
 }
 
 html,
@@ -67,15 +91,13 @@ button,
 input,
 select,
 textarea {
-    font-style: normal;
-    line-height: 1.625rem;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
 }
 
 hr {
     height: 2px;
     border: 0;
-    margin: 50px 0 !important;
+    margin: 24px 0 !important;
 }
 
 h1,
@@ -84,7 +106,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lucida Grande", "Corbal", sans-serif;
+    font-family: "Lucida Grande", "Corbel", sans-serif;
     font-weight: normal;
     clear: both;
     -ms-word-wrap: break-word;
@@ -303,19 +325,41 @@ code,
 kbd,
 tt,
 var {
-    background: rgba(0, 0, 0, 0.05);
-    font-size: 0.875rem;
+    font-size: 0.875em;
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
-pre.md-fences {
-    padding: 10px 30px;
-    margin-bottom: 20px;
-    border: 1px solid;
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
 }
 
-.md-fences .code-tooltip {
-    bottom: -3.2em;
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
 }
 
 code,
@@ -346,10 +390,6 @@ a {
 hr {
     background: #474d54;
     /* variable */
-}
-
-#write>*:first-child {
-    margin-top: 40px;
 }
 
 h1 {
@@ -400,15 +440,15 @@ td {
     padding-left: 0;
 }
 
-.task-list-item {
+.md-task-list-item {
     padding-left: 1.25rem;
 }
 
-.task-list-item input {
-    top: 0.1875rem;
+.md-task-list-item > input {
+    top: auto;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
     content: "";
     display: inline-block;
     width: 0.875rem;
@@ -417,21 +457,16 @@ td {
     text-align: center;
     border: 1px solid #b8bfc6;
     background-color: #363B40;
-    margin-top: -0.4375rem;
+    margin-top: -0.4rem;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before {
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
     content: '\221A';
     /*◘*/
     font-size: 0.625rem;
     line-height: 0.625rem;
     color: #DEDEDE;
-}
-
-.CodeMirror-gutters {
-    background: transparent;
-    border-right: 1px solid transparent;
 }
 
 /** quick open **/
@@ -455,9 +490,14 @@ td {
     color: inherit;
 }
 
-.typora-quick-open-item.active {
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
     background-color: #4D8BDB;
     color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
 }
 
 .typora-search-spinner > div {
@@ -477,7 +517,7 @@ td {
     color: #b8bfc6;
 }
 
-.md-table-edit {
+.ty-table-edit {
     border-top: 1px solid gray;
     background-color: #363B40;
 }
@@ -581,17 +621,11 @@ h6.md-focus .md-attr,
 
 .md-comment {
     color: #5a95e3;
-    opacity: 1;
+    opacity: 0.8;
 }
 
-.md-inline-math g,
 .md-inline-math svg {
-    stroke: #b8bfc6 !important;
-    fill: #b8bfc6 !important;
-}
-
-[md-inline='inline_math'] {
-    color: #9CB2E9;
+    color: #b8bfc6;
 }
 
 #math-inline-preview .md-arrow:after {
@@ -613,7 +647,6 @@ h6.md-focus .md-attr,
 }
 
 .modal-content .input-group-addon {
-    background-color: rgba(0, 0, 0, 0.17);
     color: white;
 }
 
@@ -626,7 +659,7 @@ h6.md-focus .md-attr,
 }
 
 .md-table-resize-popover {
-    background-color: #4B535A;
+    background-color: #333;
 }
 
 .form-inline .input-group .input-group-addon {
@@ -639,12 +672,16 @@ h6.md-focus .md-attr,
 
 /** UI for electron */
 
-.context-menu {
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
     background-color: #42464A;
 }
 
-.context-menu.dropdown-menu .divider {
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
     background-color: #777777;
+    opacity: 1;
 }
 
 footer {
@@ -687,12 +724,6 @@ footer {
     border: 1px grey solid;
 }
 
-.megamenu-menu-panel .btn:hover, 
-.megamenu-menu-panel .btn:focus, 
-.megamenu-menu-panel .btn.focus {
-    color: white;
-}
-
 .megamenu-menu-panel .dropdown-menu > li > a {
     color: inherit;
     background-color: #2F353A;
@@ -713,6 +744,10 @@ footer {
 .modal-footer .btn-default:not(:hover) {
     border: 1px solid;
     border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
@@ -770,7 +805,7 @@ footer {
 
 .typora-sourceview-on #toggle-sourceview-btn,
 #footer-word-count:hover,
-.show-word-count #footer-word-count {
+.ty-show-word-count #footer-word-count {
     background: #333333;
 }
 
@@ -785,7 +820,7 @@ footer {
 }
 
 .on-focus-mode .md-end-block:not(.md-focus) img,
-.on-focus-mode .task-list-item:not(.md-focus-container)>input {
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
     opacity: #686868 !important;
 }
 
@@ -811,7 +846,13 @@ footer {
 /*diagrams*/
 #write .md-focus .md-diagram-panel {
     border: 1px solid #ddd;
-    margin-left: -30px;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
 }
 
 .md-diagram-panel-error {
@@ -855,10 +896,6 @@ footer {
     border-top: none;
 }
 
-.sidebar-footer {
-    border-top: 1px solid #555;
-}
-
 .file-node-background {
     height: 32px;
 }
@@ -883,6 +920,103 @@ footer {
     color: #eee;
 }
 
-#write {
-    cursor: -webkit-image-set(url("night/cursor.png") 1x, url("night/cursor@2x.png") 2x) 8 8, auto;
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
 }
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54 !important;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+/* try fix https://github.com/typora/typora-issues/issues/5253 */
+.file-node-expanded>.file-node-children {
+    display: grid;
+  }

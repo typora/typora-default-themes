@@ -1,30 +1,51 @@
-@include-when-export url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic);
-@include-when-export url(https://fonts.googleapis.com/css?family=Raleway:600,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Didact+Gothic&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext);
 
-@charset "UTF-8";
 @font-face {
 	font-family: 'TeXGyreAdventor';
 	font-style: normal;
 	font-weight: normal;
-	src: url(./gothic/texgyreadventor-regular.otf);
+	src: url(./gothic/texgyreadventor-regular.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
 	font-family: 'TeXGyreAdventor';
 	font-style: normal;
 	font-weight: bold;
-	src: url(./gothic/texgyreadventor-bold.otf);
+	src: url(./gothic/texgyreadventor-bold.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
 	font-family: 'TeXGyreAdventor';
 	font-style: italic;
 	font-weight: normal;
-	src: url(./gothic/texgyreadventor-italic.otf);
+	src: url(./gothic/texgyreadventor-italic.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
 	font-family: 'TeXGyreAdventor';
 	font-style: italic;
 	font-weight: bold;
-	src: url(./gothic/texgyreadventor-bolditalic.otf);
+	src: url(./gothic/texgyreadventor-bolditalic.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Didact Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Didact Gothic Regular'), local('DidactGothic-Regular'), url(./gothic/didact-gothic-c-ext.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Didact Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Didact Gothic Regular'), local('DidactGothic-Regular'), url(./gothic/didact-gothic-c.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
 :root {
@@ -36,7 +57,7 @@
 }
 
 .mac-seamless-mode #typora-sidebar {
-	top: var(--mac-title-bar-height);
+	top: 20px;
 	padding-top: 0;
 	height: auto;
 }
@@ -45,8 +66,10 @@ html,
 body,
 #write{
 	background: #fcfcfc;
-	font-family: 'TeXGyreAdventor', "Century Gothic", 'Yu Gothic', 'Raleway', "STHeiti", sans-serif;
+	background: var(--bg-color);
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", 'Segoe UI Emoji', sans-serif;
 	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
 }
 h1,
 h2,
@@ -55,7 +78,7 @@ h4,
 h5,
 h6 {
 	color: #111;
-	font-family: 'TeXGyreAdventor', "Century Gothic", 'Yu Gothic', 'Ubuntu', "STHeiti", sans-serif;
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", sans-serif;
 }
 
 html {
@@ -65,6 +88,12 @@ html {
 #write {
 	max-width: 914px;
 	text-align: justify;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
 }
 
 #write>h1:first-child {
@@ -137,44 +166,6 @@ p {
 	top: .125rem;
 	padding: 2px;
 }
-/*@media screen and (min-width: 48em) {
-	.h1,
-	h1 {
-		font-size: 3.250rem;
-	}
-	.h2,
-	h2 {
-		font-size: 2.298rem;
-	}
-	.h3,
-	h3 {
-		font-size: 1.625rem;
-	}
-	.h4,
-	h4 {
-		font-size: 1.250rem;
-	}
-	.h5,
-	h5 {
-		font-size: 1.150rem;
-	}
-	.h6,
-	h6 {
-		font-size: 1rem;
-	}
-	#write>h4.md-focus:before,
-	#write>h5.md-focus:before,
-	#write>h6.md-focus:before {
-		top: 1px;
-	}
-	p {
-		font-size: 1.25rem;
-		line-height: 1.8;
-	}
-	table {
-		font-size: 1.25rem;
-	}
-}*/
 @media screen and (max-width: 48em) {
 	blockquote {
 		margin-left: 1rem;
@@ -264,9 +255,16 @@ code, .md-fences {
 	padding-left:2.125rem;
 }
 
+input {
+	border-style: ridge;
+}
+
 .task-list-item input {
 	top: 3px;
+}
 
+.md-task-list-item input {
+	margin-left: -1.5em;
 }
 
 .task-list-item input:before {
@@ -279,15 +277,21 @@ code, .md-fences {
 	border: 1px solid gray;
 	background-color: #fdfdfd;
 	margin-left: 0;
-	margin-top: -0.8rem;
+	-webkit-appearance: none;
+	margin-top: -1rem;
 }
+
+.typora-node .task-list-item input:before {
+	top: 0.3ex;
+	position: absolute;
+}
+
 .task-list-item input:checked:before,
 .task-list-item input[checked]:before{
 	content: '\25FC';
 	/*◘*/
 	font-size: 0.8125rem;
 	line-height: 0.9375rem;
-	margin-top: -1rem;
 }
 
 /* Chrome 29+ */
@@ -393,4 +397,12 @@ p.mathjax-block,
 .file-list-item-summary {
 	height: 40px;
 	line-height: 20px;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
 }
